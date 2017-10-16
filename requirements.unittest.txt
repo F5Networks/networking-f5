@@ -1,0 +1,16 @@
+# Install this directory
+-e .
+
+git+https://github.com/openstack/neutron.git@mitaka-eol
+git+https://github.com/openstack/oslo.log.git@mitaka-eol
+
+# Test Requirements
+flake8==2.6.2
+pep8==1.7.0
+pyflakes==1.3.0
+pytest==2.9.1
+pytest-cov>2.2.1
+python-coveralls==2.7.0
+pep257==0.7.0
+mock==1.3.0
+

@@ -1,0 +1,8 @@
+[run]
+omit =
+  # unit tests
+  ./networking_f5/plugins/ml2/drivers/f5/test
+  */test/*
+
+  # setup etc.
+  setup.py
