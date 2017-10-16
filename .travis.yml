@@ -1,0 +1,20 @@
+language: python
+python:
+    - "2.7"
+    - "3.5"
+sudo: true
+env:
+  global:
+    - REPO="f5-openstack-ml2-driver"
+
+before_install:
+  - git config --global user.email "OpenStack_TravisCI@f5.com"
+  - git config --global user.name "Travis F5 Openstack"
+install:
+  - pip install tox
+  - pip install -r requirements.test.txt
+  - pip install -r requirements.style.txt
+  - python ./setup.py install
+script:
+  - tox -e style
+  - tox -e unit
