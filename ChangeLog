@@ -1,5 +1,8 @@
 CHANGES
 =======
 
+* Fix errors in .travis file
+* Add authors and changelog, fix docstring in top-level __init__
+* Add F5 Neutron Networking code to travis
 * Initial implementation of F5 Network Vendor code for Neutron
 * Initial commit
