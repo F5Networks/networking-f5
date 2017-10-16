@@ -1,3 +1,3 @@
-"""f5_openstack_ml2_driver package."""
+"""networking_f5 package."""
 
 __version__ = "0.1.0"
