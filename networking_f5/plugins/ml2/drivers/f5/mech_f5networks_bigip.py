@@ -18,10 +18,10 @@ u"""This module provides a ML2 driver for BIG-IP."""
 
 from oslo_log import log
 
-from neutron.extensions import portbindings
-from neutron.plugins.common import constants as p_constants
 from neutron.plugins.ml2 import driver_api as api
 from neutron.plugins.ml2.drivers import mech_agent
+from neutron_lib.api.definitions import portbindings
+from neutron_lib import constants as n_constants
 
 from networking_f5.plugins.ml2.drivers.f5 import constants
 
@@ -83,7 +83,7 @@ class F5NetworksMechanismDriver(mech_agent.SimpleAgentMechanismDriverBase):
                 constants.AGENT_BRIDGE_MAPPINGS, {})
             if bridge_mappings:
                 allowed_network_types.extend(
-                    [p_constants.TYPE_FLAT, p_constants.TYPE_VLAN])
+                    [n_constants.TYPE_FLAT, n_constants.TYPE_VLAN])
 
         return allowed_network_types
 
@@ -157,7 +157,7 @@ class F5NetworksMechanismDriver(mech_agent.SimpleAgentMechanismDriverBase):
         if network_type in tunnel_types:
             LOG.debug("binding segment with tunnel type: %s" % network_type)
             bind_segment = True
-        elif network_type in [p_constants.TYPE_FLAT, p_constants.TYPE_VLAN]:
+        elif network_type in [n_constants.TYPE_FLAT, n_constants.TYPE_VLAN]:
             physnet = segment[api.PHYSICAL_NETWORK]
             if physnet in bridge_mappings:
                 LOG.debug("binding segment with network type: %(network_type)s"
