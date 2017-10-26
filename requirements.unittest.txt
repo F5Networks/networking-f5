@@ -1,8 +1,8 @@
 # Install this directory
 -e .
 
-git+https://github.com/openstack/neutron.git@stable/newton
-git+https://github.com/openstack/oslo.log.git@stable/newton
+git+https://github.com/openstack/neutron.git@newton-eol
+git+https://github.com/openstack/oslo.log.git@newton-eol
 
 # Test Requirements
 flake8==2.6.2
