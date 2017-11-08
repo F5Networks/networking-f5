@@ -25,13 +25,12 @@ version |release|
 Architecture
 ------------
 
-The |ml2-long| is an OpenStack Neutron `ML2 Mechanism Driver`_. When a user creates or updates a Neutron port (for example, as part of the :code:`neutron lbaas loadbalancer create` command), the |ml2| adds metadata that identify the port as belonging to an F5 device. This allows the |agent-long| to correctly identify and bind Neutron ports to BIG-IP resources.
+The |ml2-long| is an OpenStack Neutron `ML2 Mechanism Driver`_. When a user creates or updates a Neutron port -- for example, by running :code:`neutron lbaas-loadbalancer-create` command -- the |ml2| adds metadata to the port that identify it as belonging to an F5 device. This allows the |agent-long| to correctly identify and bind Neutron ports to BIG-IP resources.
 
 Guides
 ------
 
 See the `F5 Integration for OpenStack Neutron`_ documentation.
-
 
 
 .. index::
@@ -57,7 +56,7 @@ You can install the |ml2| using ``pip`` from any release or branch:
 Neutron Setup
 -------------
 
-The steps below to tell Neutron to use the |ml2| *after* all other configured ML2 mechanism drivers.
+The steps below set up Neutron to run the |ml2| *after* all other configured ML2 mechanism drivers.
 
 .. note::
 
@@ -79,13 +78,13 @@ The steps below to tell Neutron to use the |ml2| *after* all other configured ML
       systemctl restart neutron-server  \\ CentOS
       service neutron-server restart    \\ Ubuntu
 
+
 What's Next
 -----------
 
-See `F5 LBaaSv2 Quick Reference`_ to find out how to install and set up the F5 Integration for OpenStack Neutron LBaaSv2.
+See `F5 LBaaSv2 Quick Reference`_ to find out how to install and set up the F5 Integration for OpenStack Neutron.
 
 
-
-.. |Build Status| image:: https://travis-ci.org/F5Networks/f5-openstack-lbaasv2-driver.svg?branch=liberty
-   :target: https://travis-ci.org/F5Networks/f5-openstack-lbaasv2-driver
+.. |Build Status| image:: https://travis-ci.org/F5Networks/f5-openstack-ml2-driver.svg?branch=master
+   :target: https://travis-ci.org/F5Networks/f5-openstack-ml2-driver
    :alt: Build Status
