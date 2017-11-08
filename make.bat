@@ -32,11 +32,5 @@ goto end
 :help
 %SPHINXBUILD% -M help %SOURCEDIR% %BUILDDIR% %SPHINXOPTS%
 
-:preview
-@echo "Running autobuild. View live edits at:"
-@echo "  http://0.0.0.0:8000"
-@echo ""
-sphinx-autobuild --host 0.0.0.0 -b html %SOURCEDIR% %BUILDDIR%/html
-
 :end
 popd

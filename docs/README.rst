@@ -25,7 +25,23 @@ version |release|
 Architecture
 ------------
 
-The |ml2-long| is an OpenStack Neutron `ML2 Mechanism Driver`_. When a user creates or updates a Neutron port -- for example, by running :code:`neutron lbaas-loadbalancer-create` command -- the |ml2| adds metadata to the port that identify it as belonging to an F5 device. This allows the |agent-long| to correctly identify and bind Neutron ports to BIG-IP resources.
+The |ml2-long| is an OpenStack Neutron `ML2 Mechanism Driver`_. It provides the means for the |agent-long| to correctly bind Neutron ports to BIG-IP resources.
+
+When you create a new Neutron loadbalancer, the |ml2| does the following:
+
+- checks whether the allocated Neutron port belongs to an F5 device, and
+- looks for an active F5 Agent.
+
+If it finds an active F5 Agent, the |ml2| checks the agent configuration to find out if the advertised tunnel type(s) matches the type of the requested port. If it doesn't find a matching tunnel type, the |ml2| checks the physical network bridge mappings (:code:`f5_external_physical_mappings`) for a match. The |ml2| will not bind the port if it doesn't find a match in either of these Agent settings. Likewise, if it doesn't find an Agent configuration file, the |ml2| won't bind the port.
+
+When the |ml2| does find a match for the requested Neutron port in the the |agent| configuration file, it adds the following metadata to the port:
+
+- :code:`device-owner = "network:f5lbaasv2"`
+- :code:`host_id = <f5-agent_uuid>`
+
+This binds the Neutron port to a specific F5 Agent. [#affinity]_
+
+.. [#affinity] Agent selection and binding follows the same pattern as F5 LBaaSv2 `Agent-tenant affinity`_.
 
 Guides
 ------
@@ -45,8 +61,8 @@ You can install the |ml2| using ``pip`` from any release or branch:
 
 .. parsed-literal::
 
-   pip install https://github.com/F5Networks/f5-openstack-ml2-driver/releases/tag/v%(version)s
-   pip install https://github.com/F5Networks/f5-openstack-ml2-driver@%(version)s
+   pip install |ml2_pip_version|
+   pip install |ml2_pip_branch|
 
 .. index::
    single: ML2 driver; Neutron setup
@@ -82,7 +98,7 @@ The steps below set up Neutron to run the |ml2| *after* all other configured ML2
 What's Next
 -----------
 
-See `F5 LBaaSv2 Quick Reference`_ to find out how to install and set up the F5 Integration for OpenStack Neutron.
+See `F5 LBaaSv2 Quick Reference`_ to find out how to install and set up the full F5 Integration for OpenStack Neutron.
 
 
 .. |Build Status| image:: https://travis-ci.org/F5Networks/f5-openstack-ml2-driver.svg?branch=master
