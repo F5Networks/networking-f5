@@ -49,7 +49,7 @@ docker-preview:
 # run docs quality tests in a Docker container
 .PHONY: docker-test
 docker-test:
-	./docs/scripts/docker-docs.sh make test-docs
+	./docs/scripts/docker-docs.sh make docs-test
 
 # run the grammar check in a Docker container
 .PHONY: grammar-check
