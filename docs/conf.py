@@ -213,14 +213,15 @@ rst_epilog = '''
     <a class="btn btn-success" href="https://github.com/F5Networks/f5-openstack-ml2-driver/releases/tag/v%(version)s/">Release Notes</a>
 .. _Agent-tenant affinity: http://clouddocs.f5.com/cloud/openstack/v1/lbaas/#agent-tenant-affinity
 .. _available F5 Agent: %(baseurl)s/products/openstack/latest/agent/
-.. _Configure and start the F5 Agent: %(baseurl)s/products/openstack/latest/agent/index.html#configure-the-agent-long
+.. _Configure and start the F5 Agent: %(baseurl)s/products/openstack/agent/latest/index.html#configure-the-agent-long
+.. _F5 Agent configuration file: %(baseurl)s/products/openstack/agent/latest/
 .. _F5 Agent for OpenStack Neutron: %(baseurl)s/products/openstack/agent/latest
 .. _F5 Driver for OpenStack LBaaSv2: %(baseurl)s/products/openstack/lbaasv2-driver/latest
-.. _F5 Integration for OpenStack Neutron: http://clouddocs.f5.com/cloud/openstack/v1/lbaas/index.html
+.. _F5 Integration for OpenStack Neutron: http://clouddocs.f5.com/cloud/openstack/latest/lbaas/index.html
 .. _F5 LBaaSv2 Quick Reference: %(baseurl)s/cloud/openstack/latest/lbaas/quick-reference.html
 .. _F5 Service Provider Package: %(baseurl)s/cloud/openstack/latest/lbaas-prep
 .. _Neutron LBaaS API: https://wiki.openstack.org/wiki/Neutron/LBaaS/API_2.0
-.. _OpenStack Neutron: https://docs.openstack.org/neutron/latest/
+.. _OpenStack Neutron: https://docs.openstack.org/neutron/latest/config-file.html
 .. _ML2 mechanism driver: https://wiki.openstack.org/wiki/Neutron/ML2#Mechanism_Drivers
 .. _Partners: %(baseurl)s/cloud/openstack/latest/support/partners.html
 ''' % {

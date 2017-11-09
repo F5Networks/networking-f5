@@ -1,7 +1,8 @@
 * Title: A short but descriptive summary of the issue, whether it be a bug or enhancement.
-* Attachments: For bugs, attach the agent log and configuration files
-  * /etc/neutron/services/f5/f5-openstack-agent.ini
-  * /var/log/neutron/f5-openstack-agent.log
+* Attachments: For bugs, attach the neutron server log and ml2 plugin configuration files
+  * /var/log/neutron/server.log
+  * /etc/neutron/plugins/ml2/ml2_conf.ini
+  * provide the output from neutron agent-list and neutron agent-show <agent_uuid>
 * Details: For bugs, copy and paste the following template into your new issue and fill it out.
 
 #### Agent Version

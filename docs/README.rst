@@ -37,10 +37,11 @@ If it finds an active F5 Agent, the |ml2| checks the agent configuration to find
 When the |ml2| does find a match for the requested Neutron port in the the |agent| configuration file, it adds the following metadata to the port:
 
 - :code:`device-owner = "network:f5lbaasv2"`
-- :code:`host_id = <f5-agent_uuid>`
+- :code:`host_id = <f5-agent-id>` [#agentid]_
 
 This binds the Neutron port to a specific F5 Agent. [#affinity]_
 
+.. [#agentid] This is the :code:`agent_id` setting in the `F5 Agent configuration file`_.
 .. [#affinity] Agent selection and binding follows the same pattern as F5 LBaaSv2 `Agent-tenant affinity`_.
 
 Guides
@@ -80,19 +81,19 @@ The steps below set up Neutron to run the |ml2| *after* all other configured ML2
    See `Partners`_ for a list of F5's certified OpenStack distribution partners and links to their documentation.
 
 
-#. Add 'F5Networks' to the :code:`mechanism_drivers` section of the Neutron ml2_plugins configuration file: :file:`/etc/neutron/ml2_plugins.ini`.
+#. Add 'F5Networks' to the end of the list of mechanism_drivers in the Neutron ML2 plugins configuration file: :file:`/etc/neutron/plugins/ml2/ml2_conf.ini`.
 
    .. code-block:: text
 
-      mechanism_drivers = [already defined plugins], append: "f5networks"
+      mechanism_drivers = openvswitch,f5networks
 
 
 #. Restart Neutron
 
    .. code-block:: text
 
-      systemctl restart neutron-server  \\ CentOS
-      service neutron-server restart    \\ Ubuntu
+      systemctl restart neutron-server  \\ CentOS, Ubuntu 16.04
+      service neutron-server restart    \\ Ubuntu 14.04
 
 
 What's Next
