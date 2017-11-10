@@ -15,3 +15,24 @@ install:
 script:
   - tox -e style
   - tox -e unit
+  # TEST DOCS
+  - make docker-test
+deploy:
+  # deploy docs to s3
+  # if this is NOT a tagged release, the docs go to /products/openstack/ml2-driver/$TRAVIS_BRANCH
+  - provider: script
+    skip_cleanup: true
+    on:
+      repo: f5networks/networking-f5
+      branch: master
+      condition: $TRAVIS_TAG = ""
+    script:
+    - make deploy-branch
+  # if this is a tagged release, the docs go to /products/openstack/ml2-driver/$TRAVIS_BRANCH/vX.Y
+  - provider: script
+    skip_cleanup: true
+    on:
+      tags: true
+      repo: f5networks/networking-f5
+    script:
+    - make deploy-release
