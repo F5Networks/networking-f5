@@ -57,13 +57,13 @@ grammar-check:
 	write-good `find docs -iname '*.rst'` --passive --so --no-illusion --thereIs --cliches
 
 # deploy docs to production site
-# if this is a tagged release, the docs go to /products/openstack/agent/$TRAVIS_BRANCH/vX.Y
+# if this is a tagged release, the docs go to /products/openstack/agent/<branch>/vX.Y
 .PHONY: deploy-release
 deploy-release:
-	./docs/scripts/deploy-docs.sh publish-product-docs-to-prod openstack/agent/$TRAVIS_BRANCH $RELEASE_TAG
+	./docs/scripts/deploy-docs.sh publish-product-docs-to-prod openstack/agent/newton $RELEASE_TAG
 
 # deploy docs to production site
-# if this is not a tagged release, the docs go to /products/openstack/agent/$TRAVIS_BRANCH
+# if this is not a tagged release, the docs go to /products/openstack/agent/<branch>
 .PHONY: deploy-branch
 deploy-branch:
-	./docs/scripts/deploy-docs.sh publish-product-docs-to-prod openstack/agent $TRAVIS_BRANCH
+	./docs/scripts/deploy-docs.sh publish-product-docs-to-prod openstack/agent newton
