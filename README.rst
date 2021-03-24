@@ -16,6 +16,8 @@
    limitations under the License.
    -->
 
+This GitHub repository has been archived and is read-only. This project is no longer actively maintained.
+
 F5 ML2 Mechanism Driver for OpenStack Neutron
 =============================================
 
